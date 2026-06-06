@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OrbSafe | Rastreamento Orbital</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+background:#020617;
+overflow-x:hidden;
+}
+
+.stars{
+position:fixed;
+inset:0;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:50px 50px;
+opacity:.25;
+z-index:-2;
+}
+
+.orbit-map{
+width:600px;
+height:600px;
+position:relative;
+}
+
+.earth{
+width:180px;
+height:180px;
+border-radius:50%;
+background:
+radial-gradient(circle at 30% 30%,
+#60a5fa,
+#1e40af,
+#020617);
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+box-shadow:0 0 50px #3b82f6;
+}
+
+.orbit{
+position:absolute;
+border:1px solid rgba(255,255,255,.15);
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.orbit1{
+width:300px;
+height:300px;
+}
+
+.orbit2{
+width:450px;
+height:450px;
+}
+
+.orbit3{
+width:580px;
+height:580px;
+}
+
+.satellite{
+width:14px;
+height:14px;
+background:#38bdf8;
+border-radius:50%;
+position:absolute;
+top:50%;
+left:50%;
+margin:-7px;
+}
+
+.sat1{
+animation:orbit1 8s linear infinite;
+transform-origin:-150px 0;
+}
+
+.sat2{
+animation:orbit2 12s linear infinite;
+transform-origin:-225px 0;
+}
+
+.sat3{
+animation:orbit3 18s linear infinite;
+transform-origin:-290px 0;
+}
+
+.debris{
+width:10px;
+height:10px;
+background:red;
+border-radius:50%;
+position:absolute;
+top:50%;
+left:50%;
+margin:-5px;
+box-shadow:0 0 10px red;
+animation:orbit2 15s linear infinite reverse;
+transform-origin:-225px 0;
+}
+
+@keyframes orbit1{
+100%{transform:rotate(360deg);}
+}
+
+@keyframes orbit2{
+100%{transform:rotate(360deg);}
+}
+
+@keyframes orbit3{
+100%{transform:rotate(360deg);}
+}
+
+.glass{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.08);
+}
+
+</style>
+
+</head>
+
+<body class="text-white">
+
+<div class="stars"></div>
+
+<!-- NAVBAR -->
+
+<nav class="flex justify-between items-center px-10 py-6 border-b border-slate-800">
+
+<h1 class="text-3xl font-bold text-sky-400">
+ORBSAFE
+</h1>
+
+<div class="space-x-6">
+<a href="./index.html" class="hover:text-sky-400">Home</a>
+<a href="rastreamento.html" class="text-sky-400">Rastreamento</a>
+<a href="./alertas.html" class="text-sky-400">Alertas</a>
+</div>
+
+</nav>
+
+<!-- HEADER -->
+
+<section class="text-center py-12">
+
+<h2 class="text-5xl font-bold">
+Monitoramento Orbital
+</h2>
+
+<p class="text-slate-400 mt-4">
+Objetos monitorados em tempo real
+</p>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section class="grid lg:grid-cols-3 gap-8 px-10">
+
+<div class="glass p-6 rounded-2xl text-center">
+
+<h3 class="text-slate-400">Satélites Ativos</h3>
+
+<p class="text-5xl font-bold text-sky-400 mt-3">
+7.542
+</p>
+
+</div>
+
+<div class="glass p-6 rounded-2xl text-center">
+
+<h3 class="text-slate-400">Detritos Monitorados</h3>
+
+<p class="text-5xl font-bold text-red-400 mt-3">
+27.000+
+</p>
+
+</div>
+
+<div class="glass p-6 rounded-2xl text-center">
+
+<h3 class="text-slate-400">Alertas Hoje</h3>
+
+<p class="text-5xl font-bold text-yellow-400 mt-3">
+42
+</p>
+
+</div>
+
+</section>
+
+<!-- MAPA -->
+
+<section class="py-16 flex justify-center">
+
+<div class="orbit-map">
+
+<div class="orbit orbit1"></div>
+<div class="orbit orbit2"></div>
+<div class="orbit orbit3"></div>
+
+<div class="satellite sat1"></div>
+<div class="satellite sat2"></div>
+<div class="satellite sat3"></div>
+
+<div class="debris"></div>
+
+<div class="earth"></div>
+
+</div>
+
+</section>
+
+<!-- TABELA -->
+
+<section class="px-10 pb-16">
+
+<h2 class="text-3xl font-bold mb-8">
+Objetos Monitorados
+</h2>
+
+<div class="overflow-x-auto">
+
+<table class="w-full glass rounded-xl overflow-hidden">
+
+<thead class="bg-slate-900">
+
+<tr>
+
+<th class="p-4 text-left">Objeto</th>
+<th class="p-4 text-left">Tipo</th>
+<th class="p-4 text-left">Altitude</th>
+<th class="p-4 text-left">Velocidade</th>
+<th class="p-4 text-left">Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="border-t border-slate-800">
+
+<td class="p-4">STARLINK-3482</td>
+<td class="p-4">Satélite</td>
+<td class="p-4">550 km</td>
+<td class="p-4">27.200 km/h</td>
+<td class="p-4 text-green-400">Seguro</td>
+
+</tr>
+
+<tr class="border-t border-slate-800">
+
+<td class="p-4">COSMOS-1408</td>
+<td class="p-4">Detrito</td>
+<td class="p-4">480 km</td>
+<td class="p-4">28.000 km/h</td>
+<td class="p-4 text-red-400">Risco Alto</td>
+
+</tr>
+
+<tr class="border-t border-slate-800">
+
+<td class="p-4">SENTINEL-2A</td>
+<td class="p-4">Satélite</td>
+<td class="p-4">786 km</td>
+<td class="p-4">27.000 km/h</td>
+<td class="p-4 text-yellow-400">Monitorando</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ALERTAS -->
+
+<section class="px-10 pb-20">
+
+<h2 class="text-3xl font-bold mb-8">
+Alertas Recentes
+</h2>
+
+<div class="space-y-4">
+
+<div class="glass p-5 rounded-xl border-l-4 border-red-500">
+Possível aproximação crítica detectada entre COSMOS-1408 e STARLINK-3482.
+</div>
+
+<div class="glass p-5 rounded-xl border-l-4 border-yellow-500">
+Monitoramento reforçado para SENTINEL-2A.
+</div>
+
+<div class="glass p-5 rounded-xl border-l-4 border-green-500">
+Nenhum risco detectado para a constelação OrbSafe-01.
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OrbSafe | Central de Alertas</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+background:#020617;
+color:white;
+}
+
+.stars{
+position:fixed;
+inset:0;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:50px 50px;
+opacity:.25;
+z-index:-2;
+}
+
+.glass{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.pulse-alert{
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 0 0 rgba(239,68,68,.7);
+}
+
+70%{
+box-shadow:0 0 0 20px rgba(239,68,68,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(239,68,68,0);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- NAVBAR -->
+
+<nav class="flex justify-between items-center px-10 py-6 border-b border-slate-800">
+
+<h1 class="text-3xl font-bold text-sky-400">
+ORBSAFE
+</h1>
+
+<div class="space-x-6">
+<a href="index.html">Home</a>
+<a href="rastreamento.html">Rastreamento</a>
+<a href="#" class="text-sky-400">Alertas</a>
+</div>
+
+</nav>
+
+<!-- TÍTULO -->
+
+<section class="text-center py-12">
+
+<h2 class="text-5xl font-bold">
+Central de Alertas
+</h2>
+
+<p class="text-slate-400 mt-4">
+Monitoramento contínuo de riscos orbitais
+</p>
+
+</section>
+
+<!-- RESUMO -->
+
+<section class="grid md:grid-cols-4 gap-6 px-10">
+
+<div class="glass p-6 rounded-2xl text-center">
+<p class="text-slate-400">Alertas Críticos</p>
+<h3 class="text-5xl font-bold text-red-500 mt-2">5</h3>
+</div>
+
+<div class="glass p-6 rounded-2xl text-center">
+<p class="text-slate-400">Alertas Médios</p>
+<h3 class="text-5xl font-bold text-yellow-400 mt-2">12</h3>
+</div>
+
+<div class="glass p-6 rounded-2xl text-center">
+<p class="text-slate-400">Alertas Baixos</p>
+<h3 class="text-5xl font-bold text-green-400 mt-2">38</h3>
+</div>
+
+<div class="glass p-6 rounded-2xl text-center">
+<p class="text-slate-400">Eventos Hoje</p>
+<h3 class="text-5xl font-bold text-sky-400 mt-2">55</h3>
+</div>
+
+</section>
+
+<!-- ALERTA PRINCIPAL -->
+
+<section class="px-10 py-12">
+
+<div class="glass rounded-2xl p-8 border border-red-500 pulse-alert">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<h2 class="text-3xl font-bold text-red-500">
+ALERTA CRÍTICO
+</h2>
+
+<p class="mt-3 text-slate-300">
+Possível colisão detectada nas próximas 48 horas.
+</p>
+
+</div>
+
+<div class="text-right">
+
+<p class="text-slate-400">
+Probabilidade de colisão
+</p>
+
+<p class="text-5xl font-bold text-red-500">
+8.7%
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TABELA -->
+
+<section class="px-10">
+
+<h2 class="text-3xl font-bold mb-8">
+Eventos Recentes
+</h2>
+
+<div class="overflow-x-auto">
+
+<table class="w-full glass rounded-xl">
+
+<thead class="bg-slate-900">
+
+<tr>
+<th class="p-4 text-left">Data</th>
+<th class="p-4 text-left">Objeto</th>
+<th class="p-4 text-left">Risco</th>
+<th class="p-4 text-left">Probabilidade</th>
+<th class="p-4 text-left">Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="border-t border-slate-800">
+<td class="p-4">06/06/2026</td>
+<td class="p-4">COSMOS-1408</td>
+<td class="p-4 text-red-500">Crítico</td>
+<td class="p-4">8.7%</td>
+<td class="p-4">Investigando</td>
+</tr>
+
+<tr class="border-t border-slate-800">
+<td class="p-4">06/06/2026</td>
+<td class="p-4">STARLINK-3482</td>
+<td class="p-4 text-yellow-400">Médio</td>
+<td class="p-4">2.1%</td>
+<td class="p-4">Monitorando</td>
+</tr>
+
+<tr class="border-t border-slate-800">
+<td class="p-4">05/06/2026</td>
+<td class="p-4">SENTINEL-2A</td>
+<td class="p-4 text-green-400">Baixo</td>
+<td class="p-4">0.2%</td>
+<td class="p-4">Seguro</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- RECOMENDAÇÕES -->
+
+<section class="px-10 py-12">
+
+<h2 class="text-3xl font-bold mb-8">
+Ações Recomendadas
+</h2>
+
+<div class="space-y-4">
+
+<div class="glass p-5 rounded-xl border-l-4 border-red-500">
+Executar análise detalhada de trajetória para COSMOS-1408.
+</div>
+
+<div class="glass p-5 rounded-xl border-l-4 border-yellow-500">
+Reavaliar órbita do STARLINK-3482 nas próximas 24 horas.
+</div>
+
+<div class="glass p-5 rounded-xl border-l-4 border-green-500">
+Nenhuma ação necessária para SENTINEL-2A.
+</div>
+
+</div>
+
+</section>
+
+<!-- NOTIFICAÇÕES -->
+
+<section class="px-10 pb-20">
+
+<h2 class="text-3xl font-bold mb-8">
+Canais de Notificação
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="glass p-6 rounded-xl text-center">
+📧
+<h3 class="text-xl font-bold mt-2">E-mail</h3>
+<p class="text-slate-400">Alertas automáticos enviados.</p>
+</div>
+
+<div class="glass p-6 rounded-xl text-center">
+📱
+<h3 class="text-xl font-bold mt-2">SMS</h3>
+<p class="text-slate-400">Notificações críticas.</p>
+</div>
+
+<div class="glass p-6 rounded-xl text-center">
+🔔
+<h3 class="text-xl font-bold mt-2">Dashboard</h3>
+<p class="text-slate-400">Atualização em tempo real.</p>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
