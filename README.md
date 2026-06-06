@@ -169,9 +169,13 @@ Projeto desenvolvido para a **Global Solution FIAP**, com foco na aplicação de
 ### Desenvolvido por
 
 Leonardo Luiz Jardim Queijo - RM 559842 
+
 Kauã Rodrigues de Souza- RM 559335 
+
 Felipe Santos Marceli – RM 560456 
-Enzo Galhardo – RM 561001  
+
+Enzo Galhardo – RM 561001 
+
 Kauan Diogo – RM 560727 
 
 FIAP – Global Solution 2026
